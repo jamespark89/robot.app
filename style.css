@@ -1,13 +1,21 @@
-.grid-container {
+.contents {
+  width: 100vw;
+  height: 100vh;
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
-  background-color: #2196f3;
-  padding: 10px;
+  grid-template-columns: repeat(5, auto);
+  justify-content: center;
+  align-content: center;
 }
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
+.cell {
   border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
+  width: 100px;
+  height: 100px;
   text-align: center;
+}
+
+.placed {
+  background-color: red;
+}
+.active {
+  background-color: blue;
 }
