@@ -1,6 +1,28 @@
 .contents {
   width: 100vw;
   height: 100vh;
+}
+
+.input-box {
+  display: flex;
+  margin: auto;
+  width: 200px;
+  height: 300px;
+  font-size: 24px;
+}
+
+.input-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box input {
+  margin: 5px;
+  height: 24px;
+}
+
+.grid-container {
+  width: 100vw;
   display: grid;
   grid-template-columns: repeat(5, auto);
   justify-content: center;

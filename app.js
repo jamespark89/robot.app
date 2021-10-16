@@ -8,8 +8,14 @@ let activeRobot ;
 let activeRobotNumber;
 let xycoordinate;
 
+button.addEventListener('click', place);
 //function for placing a new robot on the table
-function place(x,y,f) {
+function place() {
+  const x = document.getElementById('inputx').value;
+  const y = document.getElementById('inputy').value;
+  const f = document.getElementById('direction').value;
+  const button = document.getElementById('button');
+
   robots[robots.length] = new Robot(x,y,f);
 //default set the robot1 as activeRobot 
   if(robots.length == '2') {
@@ -92,12 +98,12 @@ function unshow(){
   robotcell.classList.remove("placed");
 }
 
-place(1,1,"north");
-place(2,4,"east");
-place(3,3,"south");
-place(3,1,"south");
-move();
-move();
-robot(4);
-robot(3);
-report();
+// place(1,1,"north");
+// place(2,4,"east");
+// place(3,3,"south");
+// place(3,1,"south");
+// move();
+// move();
+// robot(4);
+// robot(3);
+// report();
