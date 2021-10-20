@@ -11,19 +11,26 @@ let xycoordinate;
 button.addEventListener('click', place);
 //function for placing a new robot on the table
 function place() {
-  const x = document.getElementById('inputx').value;
-  const y = document.getElementById('inputy').value;
-  const f = document.getElementById('direction').value;
-  const button = document.getElementById('button');
 
-  robots[robots.length] = new Robot(x,y,f);
-//default set the robot1 as activeRobot 
-  if(robots.length == '2') {
-    activeRobot = robots[1];
-    activeRobotNumber = '1';
+    const x = document.getElementById('inputx').value;
+    const y = document.getElementById('inputy').value;
+    const f = document.getElementById('direction').value;
+    const button = document.getElementById('button');
+    if(x>0 && x<6 && y>0 && y<6){
+    if(checkOverlap(x,y) != "error"){
+      robots[robots.length] = new Robot(x,y,f);
+  //default set the robot1 as activeRobot 
+      if(robots.length == '2') {
+        activeRobot = robots[1];
+        activeRobotNumber = '1';
+      }
+      console.log(`Placed Robot${robots.length-1}`);
+      show(robots);
+      }
+    }
+    else{
+    alert("please input number between 1 to 5");
   }
-  console.log(`Placed Robot${robots.length-1}`);
-  show(robots);
 }
 
 function move(){
@@ -98,6 +105,20 @@ function unshow(){
   robotcell.classList.remove("placed");
 }
 
+//check function to avoid overlap
+function checkOverlap(x,y){
+  const coordinate = ['a','b','c','d','e'];
+  let i = 1;
+  while(i<robots.length){
+  if(x == robots[i].x && y == robots[i].y){
+    alert("Already other robot in the cell, please input other value");
+    return "error";
+    }
+    else {
+    i++;
+    }
+  }
+}
 // place(1,1,"north");
 // place(2,4,"east");
 // place(3,3,"south");
